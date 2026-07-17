@@ -1,9 +1,9 @@
 // ============================================================
-//  Rubenius & REDSxP™ — single source of truth (knowledge base)
+//  Pidilite Industries Limited — single source of truth (knowledge base)
 //  Everything the voice assistant is allowed to know and say lives
 //  in THIS file. The assistant must not use any information that is
 //  not contained below.
-//  Sources: https://www.rubenius.in/ and https://redsxp.com/
+//  Sources: https://www.pidilite.com/
 // ============================================================
 
 export type SitePage = {
@@ -22,25 +22,25 @@ export type FAQ = { q: string; a: string };
 export const assistant = {
   name: "Tara",
   openingStatement:
-    "Hello, and welcome to Rubenius and REDSxP™. I'm Tara, your guide. I can tell you about our workspace designs, experience centres, the REDS™ framework, or our studio in Bangalore. What would you like to discuss today?",
+    "Hello, and welcome to Pidilite. I'm Tara, your guide. I can tell you about our brands like Fevicol, Dr. Fixit, our industrial products, investor relations, or careers at Pidilite. What would you like to discuss today?",
 };
 
 // ------------------------------------------------------------
 //  Company / project
 // ------------------------------------------------------------
 export const company = {
-  name: "Rubenius",
-  tagline: "Interior Wellbeing™ & Experiential Design",
-  location: "Bangalore, India (Bangalore Experience Lab / REDSxP™ Studio)",
-  developer: "Rubenius",
+  name: "Pidilite",
+  tagline: "Building Bonds, Creating Value",
+  location: "Mumbai, India (Corporate Office: Andheri East; Registered Office: Nariman Point)",
+  developer: "Pidilite Industries Limited",
   contact: {
-    website: "https://redsxp.com",
+    website: "https://www.pidilite.com",
     enquiry:
-      "Request a studio tour of our Bangalore Experience Lab, or start a project using the contact options on our website.",
+      "Please contact us at our corporate office, call our consumer service at 1800-266-6066, or visit the contact options on our website.",
     social: {
-      instagram: "@rubenius_interiors",
-      facebook: "RubeniusInt",
-      x: "@rubenius_interiors",
+      instagram: "@pidilite_industries",
+      facebook: "PidiliteLtd",
+      x: "@PidiliteIndia",
     },
   },
 };
@@ -53,109 +53,93 @@ export const pageIndex: SitePage[] = [
     slug: "/",
     title: "Overview",
     summary:
-      "REDSxP™ is an Experience Design Consultant model by Rubenius, creating experience centres, innovation labs, and brand customer experiences for leading enterprises.",
+      "Pidilite Industries Limited is a leading Indian multinational company specializing in adhesives, sealants, construction chemicals, art materials, and industrial specialty chemicals.",
     keywords: [
-      "rubenius",
-      "redsxp",
+      "pidilite",
       "overview",
-      "experience design",
-      "workspace design",
-      "experience centre",
-      "innovation lab",
-      "brand equity",
+      "adhesives",
+      "sealants",
+      "waterproofing",
+      "consumer bazaar",
+      "industrial business",
     ],
-    content: `REDSxP™ (developed by Rubenius) is an end-to-end experiential delivery model. It connects strategy, storytelling, technology, craft, psychology, and performance into one system to shape, build, and deliver brand environments. It aligns spatial design with human behavior to build brand equity and create intentional, performance-driven environments. Rubenius also designs future-ready workspaces, premium office interiors, and commercial spaces with sustainable, tech-driven solutions under the philosophy of Interior Wellbeing™.`,
+    content: `Since its inception in 1959, Pidilite Industries Limited has been a pioneer in consumer and specialty chemicals in India. The company operates in two main segments: Consumer & Bazaar (C&B), which includes adhesives, sealants, construction chemicals, and art/craft materials; and Business to Business (B2B), which serves various industries with specialty chemicals, resins, and pigments. Pidilite has a strong global presence, with manufacturing facilities and R&D centers in India and international locations.`,
   },
   {
-    slug: "/system",
-    title: "The REDS™ System Framework",
+    slug: "/consumer-brands",
+    title: "Consumer Brands",
     summary:
-      "REDS™ (Rubenius Experiential Design System) is a codified experience design system built on six concurrent pillars and four stages.",
+      "A diverse and ever-evolving brand portfolio including Fevicol, Dr. Fixit, M-Seal, Roff, Fevicryl, Fevikwik, Araldite, and Haisha Paints.",
     keywords: [
-      "reds",
-      "framework",
-      "six pillars",
-      "four stages",
-      "decode",
-      "design",
-      "develop",
-      "deploy",
-      "strategy",
-      "storytelling",
-      "technology",
-      "craft",
-      "psychology",
-      "performance",
+      "brands",
+      "fevicol",
+      "dr fixit",
+      "m-seal",
+      "roff",
+      "fevicryl",
+      "fevikwik",
+      "araldite",
+      "haisha paints",
+      "fevistik",
     ],
-    content: `REDS™ is a structured methodology for engineering space to change how people think, feel, behave, and perform. It is governed by:
-1. Six Pillars (applied concurrently):
-   - Strategy: Intent before design; business outcomes define spatial decisions.
-   - Storytelling: Journey structured as a narrative (Arrival, Orientation, Engagement, Climax, Resolution).
-   - Technology: Integrated into architecture as infrastructure, not ornament.
-   - Craft: Precision of materials, light, sound, and detail that build trust.
-   - Psychology: Design for real, observed human behavior and cognitive load.
-   - Performance: Validated outcomes through Post-Occupancy Evaluation (POE+) at 30, 90, and 180 days.
-2. The REDS Loop (four phases): Decode, Design, Develop, and Deploy with mandatory sign-off gates.`,
+    content: `Pidilite's portfolio of consumer brands contains household names that are leaders in their respective segments:
+- Fevicol: The flagship brand of adhesives, synonymous with strong bonding.
+- Dr. Fixit: A comprehensive range of waterproofing solutions and construction chemicals ("Waterproofing ka Doctor").
+- M-Seal: Multi-purpose epoxy sealant for sealing, joining, and repairing.
+- Roff: Advanced tile adhesives and tile care solutions.
+- Fevicryl: Leading art and craft materials brand including acrylic colors and fabric paints.
+- Fevikwik: Instant adhesive for quick repairs.
+- Araldite: High-performance epoxy adhesive.
+- Haisha Paints: High-quality decorative paints.
+- Fevistik & Fevicol MR: Easy-to-use glue sticks and white glue for schools and offices.`,
   },
   {
-    slug: "/solutions",
-    title: "Solutions & Engagement Models",
+    slug: "/industrial-business",
+    title: "Industrial Business",
     summary:
-      "Tailored solutions including Brand Centres, Innovation Labs, Retail/Hospitality, Public Centres, and engagement entry points like Sprints and Blueprints.",
+      "Extensive range of industrial products, specialty adhesives, pigments, and polymer emulsions.",
     keywords: [
-      "solutions",
-      "engagement",
-      "sprint",
-      "blueprint",
-      "brand centres",
-      "innovation labs",
-      "retail",
-      "public experience",
-      "system sprint",
+      "industrial",
+      "b2b",
+      "pigments",
+      "dr cipy",
+      "chemicals",
+      "resins",
     ],
-    content: `REDSxP™ designs different physical formats:
-- Brand Centres: Transforming complexity into clarity, fostering trust and alignment.
-- Innovation Labs: Creating R&D, prototyping, and demonstration environments where abstract ideas are easier to test and adopt.
-- Retail & Hospitality: Elevating guest memories and turning footfall into loyalty.
-- Public Experience Centres: Communicating vital systems, stories, and civic purpose.
-Engagement models to get started:
-1. System Sprint: An entry point for teams seeking initial direction, brief decoding, and intent mapping.
-2. Experience Blueprint: Mid-level package containing the experience brief, visitor journey, spatial narrative, technology layer, and partner brief.
-3. Full REDSxP™ Environment: End-to-end strategy, experience design, content/media logic, technology integration, build alignment, and launch.`,
+    content: `Pidilite's Business to Business (B2B) segment provides solutions across multiple industries:
+- Industrial Products: Specialty adhesives, resins, and organic binders.
+- Pigments: High-quality organic pigments and preparations for paints, plastics, inks, and textiles.
+- Dr. Cipy: Industrial flooring solutions (Cipy Polyurethanes) offering high durability and specialty coatings.`,
   },
   {
-    slug: "/work",
-    title: "Our Work & Case Studies",
+    slug: "/investor-relations",
+    title: "Investor Relations",
     summary:
-      "Realized experience environments for GCCs and technology leaders, including Smart Grid Experience Centres and Hybrid Immersive Labs.",
+      "Comprehensive information for shareholders, financial performance reports, quarterly/annual reports, and corporate governance.",
     keywords: [
-      "work",
-      "projects",
-      "cases",
-      "smart grid",
-      "energy",
-      "gcc",
-      "schneider",
-      "bangalore",
+      "investors",
+      "financials",
+      "quarterly reports",
+      "annual reports",
+      "shareholders",
+      "governance",
     ],
-    content: `Rubenius has delivered over 35,000+ sq ft of experience environments across energy, learning, technology, and brand spaces. A prominent example is the Smart Grid Experience Centre / Energy Experience Centre, which translates product complexity into customer clarity. Clients like Schneider Electric recognize the team's expertise: Vikas Srivastava (Head of Administration & Facility, R&D Center) shared: "Rubenius is an expert on experiential design. Our simulations to showcase our vision of the future were executed just the way we envisioned it. The team went beyond what was necessary to work within the budget."`,
+    content: `Pidilite maintains strong relationships with its investor community by ensuring timely disclosure of corporate information, publication of quarterly and annual financial results, subsidiary company reports, and listing information. Registered office: Regent Chambers, Nariman Point, Mumbai. For investor queries, contact: investor.relations@pidilite.co.in.`,
   },
   {
-    slug: "/about-us",
-    title: "About Rubenius & REDS",
+    slug: "/careers",
+    title: "Careers & Culture",
     summary:
-      "A leading Bangalore-based Experience & Workspace Design Firm led by industry experts and innovators.",
+      "Certified Great Place to Work focusing on happy and healthy employees, talent management, diversity, and current openings.",
     keywords: [
-      "about us",
-      "team",
-      "praveen kumar",
-      "sindhuja",
-      "nebin",
-      "rajesh das",
-      "bangalore",
-      "awards",
+      "careers",
+      "jobs",
+      "working with us",
+      "great place to work",
+      "talent management",
+      "diversity",
     ],
-    content: `REDSxP™ and Rubenius are powered by a dedicated team of architects, strategists, and designers, including Praveen Kumar, Sindhuja, Rajesh Kumar Das, and Chief Architect & Spatial Designer Nebin Ashraf. Based in Bangalore, the studio is widely decorated, holding honors such as FOAID Awards (multiple years), Spaceiux, Lexus Design Award Finalist, ELDROK India, Kyoorius Design Awards, and D'source Design Awards.`,
+    content: `Pidilite is certified as a 'Great Place to Work', guided by the philosophy 'Happy and Healthy employees is Happy and Healthy Pidilite'. It offers opportunities for young talent management, fosters diversity & inclusion, and shares active openings on its portal.`,
   },
 ];
 
@@ -164,35 +148,27 @@ Engagement models to get started:
 // ------------------------------------------------------------
 export const faqs: FAQ[] = [
   {
-    q: "What is REDSxP™?",
-    a: "REDSxP™ is an end-to-end experiential delivery model by Rubenius. It connects strategy, storytelling, technology, craft, psychology, performance, partners, and build logic into one accountable system for delivering brand environments like experience centres, innovation labs, and workspaces.",
+    q: "Who is the founder of Pidilite?",
+    a: "Pidilite was founded in 1959 by Shri Balvantray Kalyanji Parekh, who built a legacy of innovation and excellence in industrial adhesives and bonding solutions.",
   },
   {
-    q: "Does REDSxP™ replace our existing architects or vendors?",
-    a: "No, REDSxP™ does not replace them. We work collaboratively with your appointed architects, interior designers, fabricators, AV teams, and technologists. Rubenius owns and leads the experience spine so all components work seamlessly as one.",
+    q: "What is Pidilite's flagship brand?",
+    a: "Pidilite's flagship brand is Fevicol, which is the leading brand of adhesives in India and has become synonymous with strong bonding.",
   },
   {
-    q: "Can REDSxP™ join an existing project?",
-    a: "Yes. REDSxP™ can enter early, during design, or mid-project to review the current direction, identify gaps, align partners, and create a shared blueprint/experience logic.",
+    q: "What solutions does Dr. Fixit provide?",
+    a: "Dr. Fixit provides a comprehensive range of waterproofing solutions and construction chemicals, widely known as the 'Waterproofing ka Doctor' to prevent leakage and dampness.",
   },
   {
-    q: "Do we need to know the exact solution before contacting REDSxP™?",
-    a: "No. A clear business challenge or problem is enough. We can help decode the brief and recommend whether you need a brand centre, innovation lab, learning environment, retail showcase, or a hybrid format.",
+    q: "What are the main business segments of Pidilite?",
+    a: "Pidilite operates in two primary segments: Consumer & Bazaar (C&B), which includes retail adhesives, sealants, construction chemicals, and art/craft materials; and Business to Business (B2B), providing specialty chemicals and industrial products.",
   },
   {
-    q: "How long does it take to design and build an experience center?",
-    a: "A mid-scale experience center typically takes 8 to 14 months from strategic discovery through launch, covering the four phases (Decode, Design, Develop, Deploy) of the REDS Loop.",
+    q: "Where is the head office of Pidilite located?",
+    a: "Pidilite's corporate office is located on Ramkrishna Mandir Road, Off Sir Mathuradas Vasanji Road, Andheri East, Mumbai, Maharashtra, India.",
   },
   {
-    q: "What is the difference between an experience center designer and a traditional interior designer?",
-    a: "An experience center designer begins with business strategy, narrative architecture, and behavioral outcomes to determine what a space does. A traditional interior designer focuses primarily on aesthetics, layout, and material selection (how a space looks).",
-  },
-  {
-    q: "Why do most experience centers underperform?",
-    a: "Most experience centers underperform because they are designed without defined business strategies, narrative structures, or post-launch measurements. They may look impressive in photos but fail to change visitor behavior or communicate the brand effectively.",
-  },
-  {
-    q: "Where is the Rubenius studio located?",
-    a: "Our studio and Bangalore Experience Lab are located in Bangalore, India.",
+    q: "How can I contact Pidilite consumer service?",
+    a: "You can contact Pidilite consumer service by calling their toll-free number: 1800-266-6066.",
   },
 ];
