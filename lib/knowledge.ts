@@ -1,17 +1,17 @@
 // ============================================================
-//  Future City Telangana — single source of truth (knowledge base)
+//  Rubenius & REDSxP™ — single source of truth (knowledge base)
 //  Everything the voice assistant is allowed to know and say lives
 //  in THIS file. The assistant must not use any information that is
 //  not contained below.
-//  Source: https://futurecitytg.in
+//  Sources: https://www.rubenius.in/ and https://redsxp.com/
 // ============================================================
 
 export type SitePage = {
-  slug: string; // "/about"
+  slug: string;
   title: string;
-  summary: string; // 1–2 sentences
-  keywords: string[]; // helps retrieval & guides the model
-  content: string; // full text the model can quote
+  summary: string;
+  keywords: string[];
+  content: string;
 };
 
 export type FAQ = { q: string; a: string };
@@ -21,29 +21,26 @@ export type FAQ = { q: string; a: string };
 // ------------------------------------------------------------
 export const assistant = {
   name: "Tara",
-  // Tara speaks this FIRST, before the user says anything.
   openingStatement:
-    "Hello, and welcome to Future City Telangana — India's first Net-Zero Greenfield Smart City. I'm Tara, your guide. I can tell you about the project, its location, sustainability, investment opportunities, and more. What would you like to know?",
+    "Hello, and welcome to Rubenius and REDSxP™. I'm Tara, your guide. I can tell you about our workspace designs, experience centres, the REDS™ framework, or our studio in Bangalore. What would you like to discuss today?",
 };
 
 // ------------------------------------------------------------
 //  Company / project
 // ------------------------------------------------------------
 export const company = {
-  name: "Future City Telangana",
-  tagline: "India's first Net-Zero Greenfield Smart City",
-  location:
-    "Between the Srisailam and Nagarjunasagar highways, spanning seven mandals in Telangana, India",
-  developer:
-    "Future City Development Authority (FCDA), under the Telangana State Government",
+  name: "Rubenius",
+  tagline: "Interior Wellbeing™ & Experiential Design",
+  location: "Bangalore, India (Bangalore Experience Lab / REDSxP™ Studio)",
+  developer: "Rubenius",
   contact: {
-    website: "https://futurecitytg.in",
+    website: "https://redsxp.com",
     enquiry:
-      "Use the enquiry form on the Contact Us page of the website (fields: name, email, subject, message).",
+      "Request a studio tour of our Bangalore Experience Lab, or start a project using the contact options on our website.",
     social: {
-      instagram: "@futurecitytg",
-      facebook: "Futurecitytg",
-      x: "@Futurecitytg",
+      instagram: "@rubenius_interiors",
+      facebook: "RubeniusInt",
+      x: "@rubenius_interiors",
     },
   },
 };
@@ -56,223 +53,146 @@ export const pageIndex: SitePage[] = [
     slug: "/",
     title: "Overview",
     summary:
-      "Future City Telangana is India's first Net-Zero Greenfield Smart City — an integrated, sustainable city spanning 30,000 acres.",
+      "REDSxP™ is an Experience Design Consultant model by Rubenius, creating experience centres, innovation labs, and brand customer experiences for leading enterprises.",
     keywords: [
-      "future city",
-      "telangana",
-      "net zero",
-      "smart city",
-      "greenfield",
+      "rubenius",
+      "redsxp",
       "overview",
-      "what is",
-      "30000 acres",
+      "experience design",
+      "workspace design",
+      "experience centre",
+      "innovation lab",
+      "brand equity",
     ],
-    content: `Future City Telangana (also called the Fourth City) is India's first Net-Zero Greenfield Smart City. It is an integrated smart city spanning 30,000 acres, designed to achieve zero carbon emissions, energy neutrality, and sustainable waste management. The city is organised into separate residential, commercial, industrial, recreational, and green zones, and serves as a hub for industries, research institutions, residential communities, and public services with a strong focus on environmental sustainability.`,
+    content: `REDSxP™ (developed by Rubenius) is an end-to-end experiential delivery model. It connects strategy, storytelling, technology, craft, psychology, and performance into one system to shape, build, and deliver brand environments. It aligns spatial design with human behavior to build brand equity and create intentional, performance-driven environments. Rubenius also designs future-ready workspaces, premium office interiors, and commercial spaces with sustainable, tech-driven solutions under the philosophy of Interior Wellbeing™.`,
   },
   {
-    slug: "/about",
-    title: "About & Vision",
+    slug: "/system",
+    title: "The REDS™ System Framework",
     summary:
-      "A Net-Zero Greenfield city built from scratch on undeveloped land, managed by the Future City Development Authority (FCDA).",
+      "REDS™ (Rubenius Experiential Design System) is a codified experience design system built on six concurrent pillars and four stages.",
     keywords: [
-      "about",
-      "vision",
-      "net zero",
-      "greenfield",
-      "fcda",
-      "telangana government",
-      "carbon emissions",
-      "developer",
-      "who is building",
+      "reds",
+      "framework",
+      "six pillars",
+      "four stages",
+      "decode",
+      "design",
+      "develop",
+      "deploy",
+      "strategy",
+      "storytelling",
+      "technology",
+      "craft",
+      "psychology",
+      "performance",
     ],
-    content: `A "Net-Zero Greenfield City" is a city designed and developed from scratch on previously undeveloped land, with the primary objective of achieving zero carbon emissions. Future City Telangana integrates renewable energy systems, efficient waste and water management, and sustainable infrastructure so the city's carbon footprint is minimized — balancing the energy it consumes with what it produces. The planning, development, and management is handled by the Future City Development Authority (FCDA), under the guidance of the Telangana State Government.`,
+    content: `REDS™ is a structured methodology for engineering space to change how people think, feel, behave, and perform. It is governed by:
+1. Six Pillars (applied concurrently):
+   - Strategy: Intent before design; business outcomes define spatial decisions.
+   - Storytelling: Journey structured as a narrative (Arrival, Orientation, Engagement, Climax, Resolution).
+   - Technology: Integrated into architecture as infrastructure, not ornament.
+   - Craft: Precision of materials, light, sound, and detail that build trust.
+   - Psychology: Design for real, observed human behavior and cognitive load.
+   - Performance: Validated outcomes through Post-Occupancy Evaluation (POE+) at 30, 90, and 180 days.
+2. The REDS Loop (four phases): Decode, Design, Develop, and Deploy with mandatory sign-off gates.`,
   },
   {
-    slug: "/location",
-    title: "Location & Connectivity",
+    slug: "/solutions",
+    title: "Solutions & Engagement Models",
     summary:
-      "Located between the Srisailam and Nagarjunasagar highways across seven mandals, with strong highway, ring-road and future metro connectivity.",
+      "Tailored solutions including Brand Centres, Innovation Labs, Retail/Hospitality, Public Centres, and engagement entry points like Sprints and Blueprints.",
     keywords: [
-      "location",
-      "where",
-      "connectivity",
-      "srisailam",
-      "nagarjunasagar",
-      "orr",
-      "rrr",
-      "metro",
-      "pharma city",
-      "highway",
+      "solutions",
+      "engagement",
+      "sprint",
+      "blueprint",
+      "brand centres",
+      "innovation labs",
+      "retail",
+      "public experience",
+      "system sprint",
     ],
-    content: `Future City Telangana is strategically located between the Srisailam and Nagarjunasagar highways, spanning across seven mandals in Telangana, in the heart of the state's upcoming development zone. It is near Hyderabad Pharma City. Connectivity is provided through major highways including the Outer Ring Road (ORR) and the Regional Ring Road (RRR), with planned metro rail extensions, greenfield corridors, smart roads, pedestrian pathways, and cycling tracks.`,
+    content: `REDSxP™ designs different physical formats:
+- Brand Centres: Transforming complexity into clarity, fostering trust and alignment.
+- Innovation Labs: Creating R&D, prototyping, and demonstration environments where abstract ideas are easier to test and adopt.
+- Retail & Hospitality: Elevating guest memories and turning footfall into loyalty.
+- Public Experience Centres: Communicating vital systems, stories, and civic purpose.
+Engagement models to get started:
+1. System Sprint: An entry point for teams seeking initial direction, brief decoding, and intent mapping.
+2. Experience Blueprint: Mid-level package containing the experience brief, visitor journey, spatial narrative, technology layer, and partner brief.
+3. Full REDSxP™ Environment: End-to-end strategy, experience design, content/media logic, technology integration, build alignment, and launch.`,
   },
   {
-    slug: "/innovation-hubs",
-    title: "Innovation Hubs & Sectors",
+    slug: "/work",
+    title: "Our Work & Case Studies",
     summary:
-      "Dedicated hubs for AI, Life Sciences & Biotechnology, FinTech, Renewable Energy, Smart Manufacturing, and Advanced Urban Infrastructure.",
+      "Realized experience environments for GCCs and technology leaders, including Smart Grid Experience Centres and Hybrid Immersive Labs.",
     keywords: [
-      "innovation hubs",
-      "sectors",
-      "ai",
-      "artificial intelligence",
-      "life sciences",
-      "biotechnology",
-      "fintech",
-      "renewable energy",
-      "manufacturing",
-      "industries",
+      "work",
+      "projects",
+      "cases",
+      "smart grid",
+      "energy",
+      "gcc",
+      "schneider",
+      "bangalore",
     ],
-    content: `Future City Telangana promotes key sectors through dedicated innovation hubs: Artificial Intelligence (AI), Life Sciences and Biotechnology, Financial Technology (FinTech), Renewable Energy, Smart Manufacturing, and Advanced Urban Infrastructure.`,
+    content: `Rubenius has delivered over 35,000+ sq ft of experience environments across energy, learning, technology, and brand spaces. A prominent example is the Smart Grid Experience Centre / Energy Experience Centre, which translates product complexity into customer clarity. Clients like Schneider Electric recognize the team's expertise: Vikas Srivastava (Head of Administration & Facility, R&D Center) shared: "Rubenius is an expert on experiential design. Our simulations to showcase our vision of the future were executed just the way we envisioned it. The team went beyond what was necessary to work within the budget."`,
   },
   {
-    slug: "/infrastructure",
-    title: "Infrastructure & Amenities",
+    slug: "/about-us",
+    title: "About Rubenius & REDS",
     summary:
-      "Internal roads, underground utilities, LED street lighting, parks, jogging/cycling tracks, water systems, and sustainable infrastructure.",
+      "A leading Bangalore-based Experience & Workspace Design Firm led by industry experts and innovators.",
     keywords: [
-      "infrastructure",
-      "amenities",
-      "roads",
-      "utilities",
-      "street lighting",
-      "parks",
-      "water",
-      "drainage",
-      "facilities",
+      "about us",
+      "team",
+      "praveen kumar",
+      "sindhuja",
+      "nebin",
+      "rajesh das",
+      "bangalore",
+      "awards",
     ],
-    content: `Infrastructure includes internal roads (40' and 33' wide), underground utility lines, energy-efficient LED street lighting, and efficient drainage systems. Residential features include landscaped parks and green spaces, children's play areas, jogging and cycling tracks, and overhead water tanks with piped connections. Sustainable systems include rainwater harvesting, solar-powered street lights, and zero-waste management principles.`,
-  },
-  {
-    slug: "/sustainability",
-    title: "Sustainability",
-    summary:
-      "Renewable energy (solar and wind), green building standards, zero-waste policies, water conservation, and EV infrastructure.",
-    keywords: [
-      "sustainability",
-      "renewable energy",
-      "solar",
-      "wind",
-      "green building",
-      "zero waste",
-      "rainwater",
-      "ev",
-      "electric vehicle",
-      "environment",
-    ],
-    content: `The city integrates renewable energy sources such as solar and wind power, enforces green building standards, implements zero-waste policies, features water conservation and rainwater harvesting, and supports electric vehicle (EV) infrastructure. Green energy policies support renewable energy and EV adoption.`,
-  },
-  {
-    slug: "/residential",
-    title: "Residential",
-    summary:
-      "Affordable housing, premium apartments, and villas with modern amenities, healthcare, education, parks and recreation.",
-    keywords: [
-      "residential",
-      "housing",
-      "homes",
-      "apartments",
-      "villas",
-      "affordable",
-      "amenities",
-      "living",
-    ],
-    content: `Future City Telangana offers affordable housing, premium apartments, and villas, equipped with modern amenities, healthcare facilities, educational institutions, parks, and recreational areas.`,
-  },
-  {
-    slug: "/investment",
-    title: "Investment & Land Allotment",
-    summary:
-      "Investment in industrial parks, tech hubs, commercial complexes, residential developments and public infrastructure, with FCDA single-window clearance and incentives.",
-    keywords: [
-      "investment",
-      "land allotment",
-      "investors",
-      "industrial parks",
-      "tech hubs",
-      "commercial",
-      "incentives",
-      "subsidies",
-      "tax benefits",
-      "proposals",
-      "tenders",
-      "nri",
-    ],
-    content: `Future City Telangana offers diverse investment opportunities, including industrial parks, technology hubs, commercial complexes, residential developments, and public infrastructure projects. Investors can apply for land allotment through the Future City Development Authority (FCDA); applications, proposals, and tenders are submitted via the Proposals & Tenders section on the website, supported by a single-window clearance system (TS-iPASS for industrial clearances). Incentives include subsidies on infrastructure development, priority land allotment in innovation hubs, tax benefits, and simplified regulatory procedures, with special packages for AI, FinTech, Life Sciences, and Green Technology sectors. Target investors include aspiring homeowners, long-term land investors, NRIs, businesses, startups, and industrial companies.`,
-  },
-  {
-    slug: "/approvals",
-    title: "Approvals & Legal",
-    summary:
-      "HMDA approved and RERA registered, with clear-title ownership and transparency.",
-    keywords: [
-      "approvals",
-      "legal",
-      "hmda",
-      "rera",
-      "clear title",
-      "registration",
-      "documents",
-      "transparency",
-    ],
-    content: `The project is HMDA (Hyderabad Metropolitan Development Authority) approved and RERA registered, with clear-title ownership provisions. RERA compliance ensures transparency and timely completion. The purchase process: (1) inquire about available plots and pricing, (2) schedule a site visit, (3) select a plot, (4) verify legal documents (HMDA/RERA approvals), (5) pay the booking amount, (6) complete the booking form, (7) execute remaining payment per the agreed plan, (8) finalize registration at the local sub-registrar office, and (9) receive the registered sale deed.`,
-  },
-  {
-    slug: "/contact",
-    title: "Contact",
-    summary:
-      "Reach Future City Telangana via the enquiry form on the website or its social channels.",
-    keywords: ["contact", "reach", "enquiry", "support", "social media"],
-    content: `You can reach Future City Telangana through the enquiry form on the Contact Us page of the website (fields: name, email, subject, and message). The project is also on Instagram (@futurecitytg), Facebook (Futurecitytg), and X / Twitter (@Futurecitytg). The website also has Documentation, Innovation Hubs, Proposals & Tenders, Blog, Careers, and FAQ sections.`,
+    content: `REDSxP™ and Rubenius are powered by a dedicated team of architects, strategists, and designers, including Praveen Kumar, Sindhuja, Rajesh Kumar Das, and Chief Architect & Spatial Designer Nebin Ashraf. Based in Bangalore, the studio is widely decorated, holding honors such as FOAID Awards (multiple years), Spaceiux, Lexus Design Award Finalist, ELDROK India, Kyoorius Design Awards, and D'source Design Awards.`,
   },
 ];
 
 // ------------------------------------------------------------
-//  FAQs (verbatim from the website FAQ page)
+//  FAQs (verbatim questions and key facts from the website)
 // ------------------------------------------------------------
 export const faqs: FAQ[] = [
   {
-    q: "What is Future City Telangana?",
-    a: "Future City Telangana is India's first Net-Zero Greenfield Smart City, developed to set new standards in sustainable urban living and technological innovation. Spanning 30,000 acres, the city is designed to be an integrated hub for industries, research institutions, residential communities, and public services, all while maintaining a strong focus on environmental sustainability.",
+    q: "What is REDSxP™?",
+    a: "REDSxP™ is an end-to-end experiential delivery model by Rubenius. It connects strategy, storytelling, technology, craft, psychology, performance, partners, and build logic into one accountable system for delivering brand environments like experience centres, innovation labs, and workspaces.",
   },
   {
-    q: "Who is responsible for developing Future City Telangana?",
-    a: "The Future City Development Authority (FCDA), under the guidance of the Telangana State Government, is responsible for the planning, development, and management of Future City Telangana.",
+    q: "Does REDSxP™ replace our existing architects or vendors?",
+    a: "No, REDSxP™ does not replace them. We work collaboratively with your appointed architects, interior designers, fabricators, AV teams, and technologists. Rubenius owns and leads the experience spine so all components work seamlessly as one.",
   },
   {
-    q: 'What does "Net-Zero Greenfield City" mean?',
-    a: "A Net-Zero Greenfield City is a city designed and developed from scratch on previously undeveloped land, with the primary objective of achieving zero carbon emissions. Future City Telangana integrates renewable energy systems, efficient waste and water management, and sustainable infrastructure to ensure the city's carbon footprint is minimized, ultimately balancing the energy it consumes with what it produces.",
+    q: "Can REDSxP™ join an existing project?",
+    a: "Yes. REDSxP™ can enter early, during design, or mid-project to review the current direction, identify gaps, align partners, and create a shared blueprint/experience logic.",
   },
   {
-    q: "Where is Future City Telangana located?",
-    a: "Future City Telangana is strategically located between the Srisailam and Nagarjunasagar highways, spanning across seven mandals in Telangana. Its location ensures excellent connectivity through major highways and proximity to expanding urban centers.",
+    q: "Do we need to know the exact solution before contacting REDSxP™?",
+    a: "No. A clear business challenge or problem is enough. We can help decode the brief and recommend whether you need a brand centre, innovation lab, learning environment, retail showcase, or a hybrid format.",
   },
   {
-    q: "What sectors are being promoted?",
-    a: "Key sectors include Artificial Intelligence (AI), Life Sciences and Biotechnology, Financial Technology (FinTech), Renewable Energy, Smart Manufacturing, and Advanced Urban Infrastructure.",
+    q: "How long does it take to design and build an experience center?",
+    a: "A mid-scale experience center typically takes 8 to 14 months from strategic discovery through launch, covering the four phases (Decode, Design, Develop, Deploy) of the REDS Loop.",
   },
   {
-    q: "What investment opportunities are available?",
-    a: "Future City Telangana offers diverse investment opportunities, including industrial parks, technology hubs, commercial complexes, residential developments, and public infrastructure projects.",
+    q: "What is the difference between an experience center designer and a traditional interior designer?",
+    a: "An experience center designer begins with business strategy, narrative architecture, and behavioral outcomes to determine what a space does. A traditional interior designer focuses primarily on aesthetics, layout, and material selection (how a space looks).",
   },
   {
-    q: "How can an investor apply for land allotment?",
-    a: "Investors can apply through the Future City Development Authority (FCDA). Applications for land allotment, proposals, and tenders can be submitted via the Proposals & Tenders section on the website. The FCDA provides a single-window clearance system.",
+    q: "Why do most experience centers underperform?",
+    a: "Most experience centers underperform because they are designed without defined business strategies, narrative structures, or post-launch measurements. They may look impressive in photos but fail to change visitor behavior or communicate the brand effectively.",
   },
   {
-    q: "Are there incentives available for businesses?",
-    a: "Yes. Future City Telangana offers subsidies on infrastructure development, priority land allotment in innovation hubs, tax benefits, and simplified regulatory procedures. Special packages are available for AI, FinTech, Life Sciences, and Green Technology sectors.",
-  },
-  {
-    q: "What sustainability initiatives are in place?",
-    a: "The city integrates renewable energy sources such as solar and wind power, enforces green building standards, implements zero-waste policies, features water conservation and rainwater harvesting, and supports electric vehicle infrastructure.",
-  },
-  {
-    q: "What residential facilities are planned?",
-    a: "Future City Telangana offers affordable housing, premium apartments, and villas, equipped with modern amenities, healthcare facilities, educational institutions, parks, and recreational areas.",
-  },
-  {
-    q: "How will transportation and connectivity be handled?",
-    a: "The city connects through major highways including the Outer Ring Road and Regional Ring Road. Plans include metro rail extensions, greenfield corridors, smart roads, pedestrian pathways, and cycling tracks.",
+    q: "Where is the Rubenius studio located?",
+    a: "Our studio and Bangalore Experience Lab are located in Bangalore, India.",
   },
 ];
