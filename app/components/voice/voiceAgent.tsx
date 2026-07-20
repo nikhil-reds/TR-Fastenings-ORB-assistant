@@ -26,11 +26,45 @@ export function VoiceAgent() {
   const nextPlayTimeRef = useRef<number>(0);
   const stateRef = useRef(state);
   const isSessionActiveRef = useRef(false);
+  const silenceTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Keep stateRef up to date for closure functions
+  const resetSilenceTimer = () => {
+    if (silenceTimerRef.current) {
+      clearTimeout(silenceTimerRef.current);
+    }
+    if (!isSessionActiveRef.current || stateRef.current !== "listening") return;
+
+    silenceTimerRef.current = setTimeout(() => {
+      if (sessionRef.current && isSessionActiveRef.current && stateRef.current === "listening") {
+        try {
+          sessionRef.current.sendClientContent({
+            turns: [
+              {
+                role: "user",
+                parts: [{ text: "[System instruction: The user has been silent for 5 seconds. Gently prompt them to ask a question or continue the conversation in your friendly, warm tone.]" }],
+              },
+            ],
+            turnComplete: true,
+          });
+        } catch (e) {
+          console.error("Failed to send silence prompt:", e);
+        }
+      }
+    }, 5000);
+  };
+
+  // Keep stateRef up to date for closure functions and handle silence timer state
   useEffect(() => {
     stateRef.current = state;
-  }, [state]);
+    
+    if (silenceTimerRef.current) {
+      clearTimeout(silenceTimerRef.current);
+      silenceTimerRef.current = null;
+    }
+    if (isConnected && state === "listening") {
+      resetSilenceTimer();
+    }
+  }, [state, isConnected]);
 
   // Clean up all audio resources and connections on unmount
   useEffect(() => {
@@ -183,6 +217,11 @@ export function VoiceAgent() {
   const cleanupSession = () => {
     isSessionActiveRef.current = false;
 
+    if (silenceTimerRef.current) {
+      clearTimeout(silenceTimerRef.current);
+      silenceTimerRef.current = null;
+    }
+
     // Stop the recording worklet FIRST. Removing its message handler and
     // disconnecting it ensures no trailing audio chunks are sent to a
     // WebSocket that is already closing (which triggers the browser's
@@ -267,6 +306,13 @@ export function VoiceAgent() {
           responseModalities: ["AUDIO" as any],
           systemInstruction: {
             parts: [{ text: buildSystemInstruction() }],
+          },
+          speechConfig: {
+            voiceConfig: {
+              prebuiltVoiceConfig: {
+                voiceName: "Aoede",
+              },
+            },
           },
         },
         callbacks: {
@@ -356,6 +402,11 @@ export function VoiceAgent() {
           }
           const rms = Math.sqrt(sum / int16Array.length);
           setVolume(Math.min(1, rms * 5.5)); // amplify slightly for better visuals
+
+          // Reset the silence timer if the user is speaking (RMS above noise threshold)
+          if (rms > 0.005) {
+            resetSilenceTimer();
+          }
         }
       };
 
