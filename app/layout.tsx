@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pidilite ORB Assistant",
-  description: "Talk to the Pidilite ORB — a real-time voice assistant for everything Pidilite.",
+  title: "TR Fastenings ORB Assistant",
+  description: "Talk to the TR Fastenings ORB — a real-time voice assistant for everything TR Fastenings.",
 };
 
 export default function RootLayout({
