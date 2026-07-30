@@ -349,7 +349,7 @@ export function VoiceAgent() {
           turns: [
             {
               role: "user",
-              parts: [{ text: "Begin the conversation now by greeting me with your opening line." }],
+              parts: [{ text: "Hello! Please initiate the conversation by saying your exact opening line." }],
             },
           ],
           turnComplete: true,
