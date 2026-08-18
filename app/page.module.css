@@ -1,0 +1,74 @@
+.main {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+}
+
+.main > :not(.ambientBackground) {
+  position: relative;
+  z-index: 1;
+}
+
+.ambientBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 46% 42% at -8% 102%, rgba(0, 172, 255, 0.13), transparent 68%),
+    radial-gradient(ellipse 42% 48% at 108% 90%, rgba(92, 45, 235, 0.12), transparent 68%),
+    radial-gradient(ellipse 38% 32% at 10% 0%, rgba(181, 75, 255, 0.1), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 100% 14%, rgba(20, 104, 218, 0.08), transparent 72%);
+}
+
+.ambientBackground::before,
+.ambientBackground::after {
+  position: absolute;
+  content: "";
+  opacity: 0.24;
+  background-image: radial-gradient(circle, rgba(121, 182, 255, 0.7) 0 0.7px, transparent 0.9px);
+  background-size: 7px 7px;
+  mask-image: radial-gradient(ellipse at center, #000 0 48%, transparent 72%);
+}
+
+.ambientBackground::before {
+  width: 72vw;
+  height: 48vw;
+  top: -30vw;
+  left: -19vw;
+  transform: rotate(-14deg);
+}
+
+.ambientBackground::after {
+  width: 65vw;
+  height: 68vw;
+  right: -31vw;
+  bottom: -20vw;
+  transform: rotate(24deg);
+  opacity: 0.18;
+}
+
+@media (max-width: 640px) {
+  .ambientBackground::before {
+    width: 130vw;
+    height: 88vw;
+    top: -42vw;
+    left: -49vw;
+  }
+
+  .ambientBackground::after {
+    width: 120vw;
+    height: 120vw;
+    right: -68vw;
+    bottom: -22vw;
+  }
+}
