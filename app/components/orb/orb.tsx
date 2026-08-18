@@ -99,7 +99,6 @@ export function Orb() {
         )}
       </div>
       <div className={styles.statusLabel} aria-live="polite">
-        {state === "idle" && <span className={styles.idleText}>Tap to start</span>}
         {state === "listening" && <span className={styles.listeningText}>Listening…</span>}
         {state === "thinking" && <span className={styles.thinkingText}>Thinking…</span>}
       </div>
