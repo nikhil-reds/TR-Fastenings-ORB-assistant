@@ -463,7 +463,7 @@ export function VoiceAgent() {
         ) : (
           <>
             <Mic className="w-5 h-5" />
-            <span>Connect Assistant</span>
+            <span>Talk to Agent</span>
           </>
         )}
       </button>
@@ -482,7 +482,6 @@ export function VoiceAgent() {
           <span>
             {state === "listening" && "Go ahead, say something!"}
             {state === "thinking" && "Gemini is processing..."}
-            {state === "speaking" && "Gemini is speaking..."}
           </span>
         </div>
       )}

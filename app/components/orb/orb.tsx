@@ -1,82 +1,107 @@
 "use client";
 
+import { useMemo, useRef, useSyncExternalStore } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import * as THREE from "three";
 import { useOrbState } from "./useOrbState";
 import styles from "./orb.module.css";
-import clsx from "clsx";
 
-// Fixed particle set (deterministic positions/delays via index).
-const PARTICLES = Array.from({ length: 16 }, (_, i) => i);
+const PARTICLE_COUNT = 8_000;
+const subscribeToHydration = () => () => undefined;
+
+function ParticleOrb() {
+  const meshRef = useRef<THREE.InstancedMesh>(null);
+  const state = useOrbState((store) => store.state);
+  const volume = useOrbState((store) => store.volume);
+  const dummy = useMemo(() => new THREE.Object3D(), []);
+  const target = useMemo(() => new THREE.Vector3(), []);
+  const color = useMemo(() => new THREE.Color(), []);
+  const positions = useMemo(
+    () => Array.from({ length: PARTICLE_COUNT }, (_, index) => {
+      const fraction = (index + 0.5) / PARTICLE_COUNT;
+      const y = 1 - 2 * fraction;
+      const radial = Math.sqrt(Math.max(0, 1 - y * y));
+      const theta = 2.399963229728653 * index;
+
+      return new THREE.Vector3(
+        radial * Math.cos(theta) * 58,
+        y * 58,
+        radial * Math.sin(theta) * 58,
+      );
+    }),
+    [],
+  );
+  const material = useMemo(() => new THREE.MeshBasicMaterial({ color: "#ffffff", transparent: true, opacity: 0.92 }), []);
+  const geometry = useMemo(() => new THREE.TetrahedronGeometry(0.22), []);
+
+  useFrame(({ clock }) => {
+    if (!meshRef.current) return;
+
+    const time = clock.getElapsedTime();
+    const config = state === "listening"
+      ? { flow: 0.72, turbulence: 0.36 + volume * 0.34, hue: 0.46 }
+      : state === "thinking"
+        ? { flow: 1.35, turbulence: 0.62, hue: 0.12 }
+        : state === "speaking"
+          ? { flow: 0.18, turbulence: 0.5 + volume * 0.16, hue: 0.78 }
+          : { flow: 0.42, turbulence: 0.24, hue: 0.62 };
+    const t = time * config.flow;
+
+    for (let index = 0; index < PARTICLE_COUNT; index += 1) {
+      const fraction = (index + 0.5) / PARTICLE_COUNT;
+      const y = 1 - 2 * fraction;
+      const radial = Math.sqrt(Math.max(0, 1 - y * y));
+      const theta = 2.399963229728653 * index;
+      const x = radial * Math.cos(theta);
+      const z = radial * Math.sin(theta);
+      const waveOne = Math.sin(x * 3.2 + t * 1.7 + Math.cos(z * 2.1 - t)) * Math.cos(y * 2.4 - t * 1.3);
+      const waveTwo = Math.sin(z * 4.1 - t * 1.1 + Math.cos(x * 2.7 + t)) * Math.cos(y * 3.1 + t);
+      const breath = 1 + 0.055 * Math.sin(t * 1.4) + 0.025 * Math.sin(t * 2.8 + 1.2);
+      const turn = t * 0.24;
+      const rotatedX = x * Math.cos(turn) - z * Math.sin(turn);
+      const rotatedZ = x * Math.sin(turn) + z * Math.cos(turn);
+      const distortion = config.turbulence * 0.24;
+
+      target.set(
+        (rotatedX + waveOne * distortion) * 58 * breath,
+        (y + waveTwo * distortion * 1.15) * 58 * breath,
+        (rotatedZ + (waveOne - waveTwo) * distortion * 0.48) * 58 * breath,
+      );
+      positions[index].lerp(target, 0.095);
+      dummy.position.copy(positions[index]);
+      dummy.updateMatrix();
+      meshRef.current.setMatrixAt(index, dummy.matrix);
+
+      const swirl = 0.5 + 0.5 * Math.sin(y * 2 + rotatedX * 1.4 + t * 1.3 + waveOne * 2);
+      color.setHSL((config.hue + swirl * 0.18 + 0.035 * Math.sin(t + fraction * 6.28)) % 1, 0.78 + swirl * 0.17, 0.52 + swirl * 0.22);
+      meshRef.current.setColorAt(index, color);
+    }
+    meshRef.current.instanceMatrix.needsUpdate = true;
+    if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true;
+  });
+
+  return <instancedMesh ref={meshRef} args={[geometry, material, PARTICLE_COUNT]} />;
+}
 
 export function Orb() {
-  const state = useOrbState((s) => s.state);
-  const volume = useOrbState((s) => s.volume);
-
-  // Volume drives subtle scale + core glow intensity (coreGlowIntensity analogue).
-  const scale = 1 + volume * 0.16;
-  const intensity = 0.85 + volume * 0.9;
+  const state = useOrbState((store) => store.state);
+  const hasHydrated = useSyncExternalStore(subscribeToHydration, () => true, () => false);
 
   return (
     <div className={styles.wrap}>
-      <div className={styles.stage}>
-        {/* Outer colored shadow / ambient halo */}
-        <div
-          className={clsx(styles.ambient, styles[state])}
-          style={{
-            transform: `scale(${1 + volume * 0.45})`,
-            opacity: 0.4 + volume * 0.5,
-          }}
-        />
-
-        {/* The orb — every effect below is masked to this circle */}
-        <div
-          className={clsx(styles.orb, styles[state])}
-          style={
-            {
-              transform: `scale(${scale})`,
-              "--intensity": intensity,
-            } as React.CSSProperties
-          }
-        >
-          {/* Base gradient background */}
-          <div className={styles.background} />
-
-          {/* Slow rotating crescent glows for depth */}
-          <div className={styles.depthGlow} />
-          <div className={styles.outerRing} />
-
-          {/* Flowing organic wavy blobs */}
-          <div className={styles.blob1} />
-          <div className={styles.blob2} />
-
-          {/* Fast, energetic core glows */}
-          <div className={styles.coreGlow1} />
-          <div className={styles.coreGlow2} />
-
-          {/* Bright central core */}
-          <div className={styles.core} />
-
-          {/* Floating particles */}
-          <div className={styles.particles}>
-            {PARTICLES.map((i) => (
-              <span
-                key={i}
-                className={styles.particle}
-                style={{ "--p": i } as React.CSSProperties}
-              />
-            ))}
-          </div>
-
-          {/* Realistic rim / inner glow */}
-          <div className={styles.rim} />
-        </div>
+      <div className={styles.stage} aria-label="Animated TR Fastenings voice assistant orb">
+        {hasHydrated && (
+          <Canvas camera={{ position: [0, 0, 315], fov: 45 }} gl={{ alpha: true, antialias: true }} onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}>
+            <group scale={1.79}><ParticleOrb /></group>
+            <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={state === "thinking" ? 2.8 : 0.85} />
+          </Canvas>
+        )}
       </div>
-
-      {/* Status label */}
-      <div className={styles.statusLabel}>
-        {state === "idle" && <span className={styles.idleText}>Tap to Start</span>}
-        {state === "listening" && <span className={styles.listeningText}>Listening...</span>}
-        {state === "thinking" && <span className={styles.thinkingText}>Thinking...</span>}
-        {state === "speaking" && <span className={styles.speakingText}>Assistant Speaking</span>}
+      <div className={styles.statusLabel} aria-live="polite">
+        {state === "idle" && <span className={styles.idleText}>Tap to start</span>}
+        {state === "listening" && <span className={styles.listeningText}>Listening…</span>}
+        {state === "thinking" && <span className={styles.thinkingText}>Thinking…</span>}
       </div>
     </div>
   );
