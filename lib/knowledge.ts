@@ -22,7 +22,7 @@ export type FAQ = { q: string; a: string };
 export const assistant = {
   name: "Tracey",
   openingStatement:
-    "Hi, how can I help you?"
+    "Hi, I'm Tracey, your TR Fastenings voice assistant. How can I help you today?"
 };
 
 // ------------------------------------------------------------
