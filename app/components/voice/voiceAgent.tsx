@@ -27,8 +27,10 @@ export function VoiceAgent() {
   const stateRef = useRef(state);
   const isSessionActiveRef = useRef(false);
   const silenceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const [isSilent, setIsSilent] = useState(false);
 
   const resetSilenceTimer = () => {
+    setIsSilent(false);
     if (silenceTimerRef.current) {
       clearTimeout(silenceTimerRef.current);
     }
@@ -36,12 +38,17 @@ export function VoiceAgent() {
 
     silenceTimerRef.current = setTimeout(() => {
       if (sessionRef.current && isSessionActiveRef.current && stateRef.current === "listening") {
+        setIsSilent(true);
         try {
           sessionRef.current.sendClientContent({
             turns: [
               {
                 role: "user",
-                parts: [{ text: "[System instruction: The user has been silent for 5 seconds. Gently prompt them to ask a question or continue the conversation in your friendly, warm tone.]" }],
+                parts: [
+                  {
+                    text: "[System instruction: The user has been silent. Gently prompt them in a very short, warm, natural sentence to ask a question about TR Fastenings.]",
+                  },
+                ],
               },
             ],
             turnComplete: true,
@@ -50,7 +57,7 @@ export function VoiceAgent() {
           console.error("Failed to send silence prompt:", e);
         }
       }
-    }, 5000);
+    }, 6000); // 6 seconds of silence
   };
 
   // Keep stateRef up to date for closure functions and handle silence timer state
@@ -281,12 +288,13 @@ export function VoiceAgent() {
         }
       }
 
-      // 1. Request microphone permissions first
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      // 1 & 2. Request mic permissions and fetch token concurrently to save time
+      const [stream, response] = await Promise.all([
+        navigator.mediaDevices.getUserMedia({ audio: true }),
+        fetch("/api/gemini-token", { method: "POST" }),
+      ]);
       micStreamRef.current = stream;
 
-      // 2. Fetch ephemeral token from Next.js server route
-      const response = await fetch("/api/gemini-token", { method: "POST" });
       if (!response.ok) {
         throw new Error("Failed to retrieve authentication token from server.");
       }
@@ -480,7 +488,7 @@ export function VoiceAgent() {
         <div className="text-xs opacity-50 mt-1 flex items-center gap-1.5 animate-pulse text-indigo-200">
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
           <span>
-            {state === "listening" && "Go ahead, say something!"}
+            {state === "listening" && (isSilent ? "Still there? Ask me about TR Fastenings!" : "Go ahead, say something!")}
             {state === "thinking" && "Gemini is processing..."}
           </span>
         </div>
