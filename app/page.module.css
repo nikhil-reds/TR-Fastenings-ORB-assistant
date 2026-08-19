@@ -17,10 +17,10 @@
   z-index: 1;
 }
 
-.main > .topRightLogo {
+.main > .topLeftLogo {
   position: absolute;
   top: 2rem;
-  right: 2rem;
+  left: 2rem;
   z-index: 10;
 }
 
