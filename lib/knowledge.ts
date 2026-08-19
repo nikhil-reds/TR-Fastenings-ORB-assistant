@@ -218,6 +218,40 @@ Balance Sheet & Shareholder Payouts:
   * FY2025: Interim 0.60p, Final 1.20p, Total 1.80p (Yield: 2.71%)
   * FY2026: Interim 0.60p, Final 1.30p, Total 1.90p (Yield: 1.95%)`,
   },
+  {
+    slug: "/engineering",
+    title: "Engineering Mechanics & Technical Catalog Data",
+    summary:
+      "Detailed engineering specifications, VDI 2230 joint design, stainless steel metallurgy, protective coatings, thread geometries, and assembly standards.",
+    keywords: [
+      "engineering",
+      "vdi 2230",
+      "metallurgy",
+      "stainless steel",
+      "coatings",
+      "hydrogen embrittlement",
+      "friction",
+      "threadforming",
+      "self-clinch",
+      "rivet bush",
+      "vmi",
+      "testing",
+      "torque",
+      "preload",
+    ],
+    content: `TR Fastenings engineering standards and product taxonomy:
+
+1. Manufacturing Footprint: Primary production facilities include TR Singapore, SFE Taiwan (2 plants), TR VIC Italy, and PSEP Malaysia. Operational certifications include IATF 16949, ISO 9001, and ISO 14001, with Level 3 PPAP capabilities.
+2. Product Catalog & Sizing: Over 50,000 SKUs (screws, nuts, washers, sheet metal fasteners, plastic hardware, cable glands, security fasteners). Example: Machine screws has 5,088 SKUs (M1 to M16; imperial 0-80 to 1/2-13; pan, countersunk, cheese heads).
+3. Bolted Joint Design (VDI 2230): Governs relationship between preload clamp force (FM), working load (FA), shear stress, and relaxation. Sizing follows a 4-step algorithm (starting load FA, min clamp load FM_min, max clamp load FM_max, and nominal diameter selection).
+4. Metallurgy & Galling (ISO 3506): Austenitic stainless (A2 commercial, A4 molybdenum acid-proof marine) are non-magnetic and work-hardened. Galling mitigated by anti-seize lubrication, driver speeds <400 RPM, dissimilar alloy mating, and rolled threads. Martensitic (C1), Ferritic (F1), and Duplex are also supported.
+5. Plating & Hydrogen Embrittlement: Electroplated zinc (BS 7371-3) requires thermal de-embrittlement baking at 190°C–220°C for 4-24 hours for core/surface hardness >320 HV (Property Classes 8.8, 10.9, 12.9) to effuse atomic hydrogen. Non-electrolytic zinc flake coatings (Geomet, Magni 565/577, Delta Protekt) carry zero process-induced embrittlement risk.
+6. Threadforming (DIN 7500 Tap-Fix): Trilobular shank forms internal threads by cold plastic deformation (no chips/swarf). Target thread engagement is 50%-95% (minimum engagement 2d).
+7. Polymeric Fastening (Plas-Tech 30-20): Composite thread form reduces radial bursting stress by >30%, preventing boss wall cracks. Target strip-to-drive torque ratio is >= 3:1.
+8. Sheet Metal & Rivet Bushes: Self-clinch nuts/studs use cold plastic displacement in a hydraulic press (sheet hardness must be <80 HRB for steel, <70 HRB for stainless). Rivet bushes (Hanksert) expand a tubular spigot over sheet reverse face.
+9. Supply Chain VMI Automation: Implements TwinBin Live (optical flag/ERP signal), TwinBin DLF (5G ERP barcode feed), FlexSense (real-time weight/optical sensors), ProStock (locked dispensing carousels), and Accucab (RFID weight scales).
+10. Support & VA/VE: Value Analysis/Value Engineering line walks standardize drives and convert machined parts to cold-headed forgings to minimize raw material waste.`,
+  },
 ];
 
 // ------------------------------------------------------------
