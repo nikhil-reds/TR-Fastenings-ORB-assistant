@@ -152,21 +152,71 @@ export const pageIndex: SitePage[] = [
     slug: "/financials",
     title: "Financial Performance & Global Footprint",
     summary:
-      "Trifast plc is a global group with revenues spanning the UK, Europe, USA, and Asia. Features five high-volume manufacturing sites.",
+      "Detailed financial performance, capital market indicators, five-year metrics trajectory, regional dynamics, and dividend policy of Trifast plc.",
     keywords: [
       "financials",
       "revenue",
-      "manufacturing",
-      "footprint",
-      "singapore",
-      "italy",
-      "sfe",
-      "turnover",
+      "profit",
+      "net debt",
+      "dividend",
+      "share price",
+      "valuation",
+      "market capitalization",
+      "basic eps",
+      "operating profit",
+      "uop",
+      "pbt",
+      "debt",
+      "leverage",
+      "target sectors",
+      "smart infrastructure",
+      "automotive",
+      "medical equipment",
+      "recover rebuild resilience",
     ],
-    content: `Trifast plc operates globally across the UK, Asia, Europe, and the USA. Key aspects of the global footprint and financials:
-- Manufacturing: Features five high-volume manufacturing sites including TR Singapore, TR SFE, and TR Italy, plus three engineering and innovation centres.
-- Logistics: Operates global supply chain solutions and optimisation services, including the National Distribution Centre in Walsall.
-- Financial Position: Standard reporting follows LSE requirements. The group maintains a strong statement of financial position and focuses on return on capital employed (ROCE) and delivering sustainable shareholder returns.`,
+    content: `Trifast plc (LSE: TRI / TRFT) is a global specialist in the design, engineering, manufacture, and distribution of industrial fastenings and Category 'C' components.
+
+Capital Market Indicators (as of August 2026):
+- LSE Ticker / ISIN: TRI.L / GB0008883927
+- Current Share Price: 92.58p
+- 52-Week Price Range: 56.20p - 95.00p
+- Market Capitalization: £124.24m - £125.02m
+- Shares in Issue: 135.04m
+- Average Analyst 12-Month Target: 122.80p (Range: 104.00p - 140.00p)
+- Analyst Recommendation: Strong Buy (5 Buys, 0 Sells)
+- Valuation Metrics: Price/LTM Sales: 0.6x; Price/Book Value: 1.1x; PEG Ratio: 0.20x - 0.65x; Dividend Yield (TTM): 1.94% - 1.96%
+
+Five-Year Financial Performance Trajectory (FY2021 - FY2026):
+- FY2021: Revenue £188.20m, Gross Margin 26.5%, Underlying Operating Profit (UOP) £12.00m, UOP Margin 6.4%, Statutory Operating Profit £8.80m, Statutory PBT £7.80m, Basic EPS 4.31p, Adjusted EPS 6.24p, Adjusted Net Cash £13.3m, Total Dividend 1.60p.
+- FY2022: Revenue £218.62m, Gross Margin ~26.7%, UOP £11.60m, UOP Margin 5.3%, Statutory Operating Profit £11.60m, Statutory PBT £10.62m, Basic EPS 6.61p, Adjusted EPS 8.19p, Adjusted Net Debt £37.50m, Total Dividend 2.10p.
+- FY2023: Revenue £244.39m, Gross Margin 25.3%, UOP £11.90m, UOP Margin ~4.9%, Statutory Operating Loss £(0.01)m, Statutory PBT £(2.69)m, Basic EPS (2.12p), Adjusted EPS 5.13p, Adjusted Net Debt £53.80m, Total Dividend 2.25p.
+- FY2024: Revenue £233.67m, Gross Margin 25.7%, UOP £11.90m, UOP Margin 5.1%, Statutory Operating Profit £4.63m, Statutory PBT £(0.79)m, Basic EPS (3.29p), Adjusted EPS 1.62p, Adjusted Net Debt £21.00m, Total Dividend 1.80p.
+- FY2025: Revenue £223.47m, Gross Margin 27.4%, UOP £15.50m, UOP Margin 6.8% (CER), Statutory Operating Profit £9.43m, Statutory PBT £4.93m, Basic EPS 0.77p, Adjusted EPS 4.31p - 6.46p, Adjusted Net Debt £15.40m, Total Dividend 1.80p.
+- FY2026: Revenue £207.00m - £208.37m, Gross Margin ~30.0%, UOP £16.00m (Est.), UOP Margin ~7.7%, Statutory Operating Profit £4.24m, Statutory PBT £0.06m, Basic EPS (0.73p), Adjusted EPS 6.46p, Adjusted Net Debt £17.40m, Total Dividend 1.90p.
+
+Annual Highlights:
+- FY2021: Down 6% YoY due to pandemic. Strong cash conversion at 147.9% of underlying EBITDA.
+- FY2022: Revenue rose 16.2% as production resumed. Buffer inventory building increased net debt to £37.50m.
+- FY2023: Revenue reached £244.39m due to price pass-through, but freight inflation and Asian destocking hit profitability. Net debt peaked at £53.80m.
+- FY2024: Initiated 'Recover' phase, pruning low-margin contracts. Net debt cut in half to £21.00m.
+- FY2025: Self-help initiatives expanded gross margins to 27.4%. ROCE rose to 8.1%. Net debt fell to £15.40m.
+- FY2026: Volumetric contraction of 7% from rationalization and soft UK/European automotive markets, but gross margin expanded to ~30.0%. Statutory PBT was £0.06m due to restructuring costs.
+
+Operational Transformation & Target Sectors:
+Turnaround strategy: "Recover, Rebuild, Resilience". Shifted focus away from low-margin volume chasing to disciplined margin expansion and key growth sectors:
+1. Smart Infrastructure: Data centers, AI processing hardware, smart grids, Middle East exports.
+2. Automotive: Shifted from ICE fasteners to Electric Vehicle (EV) platforms and structural joining systems.
+3. Medical Equipment: High-margin engineering standards and sticky relationships.
+
+Balance Sheet & Shareholder Payouts:
+- Debt Management: Stock levels reduced from 37% of revenue in FY2023 to 30%-31% in FY2024-FY2026. Operating cash flow conversion >= 100% of EBITDA. Bank facility leverage is below 1.0x EBITDA, leaving over £73m undrawn under the £120.0m revolving credit facility.
+- Dividends:
+  * FY2021: Interim 0.00p, Final 1.60p, Total 1.60p (Yield: 1.07%)
+  * FY2022: Interim 0.70p, Final 1.40p, Total 2.10p (Yield: 1.83%)
+  * FY2023: Interim 0.75p, Final 1.50p, Total 2.25p (Yield: 2.89%)
+  * FY2024: Interim 0.60p, Final 1.20p, Total 1.80p (Yield: 2.41%)
+  * FY2025: Interim 0.60p, Final 1.20p, Total 1.80p (Yield: 2.71%)
+  * FY2026: Interim 0.60p, Final 1.30p, Total 1.90p (Yield: 1.95%)`,
   },
 ];
 
